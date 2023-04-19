@@ -1,0 +1,487 @@
+
+<?php 
+if(isset($_POST['submit3'])) {
+$to = 'orledurdevic@gmail.com'; 
+$subject = 'EMAIL SA WEB STRANICE!';
+$email = $_POST['email'];
+$poruka2 = $_POST['poruka'];
+$poruka3 = "email:  " . $email ."\r\n" .
+"PORUKA SA WEB STRANICE je:  " . $poruka2;
+$headers = 'From: orle.ba' . "\r\n" .
+    'Reply-To: travelinfosjj@gmail.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion(); 
+
+if(empty($_POST['poruka']) || empty($_POST['email']) ) {
+	echo '<script language="javascript">';
+echo 'alert("BOTH FIELDS MUST BE FILLED!")';
+echo '</script>';
+}
+else {
+	mail($to, $subject, $poruka3, $headers);
+		echo '<script language="javascript">';
+echo 'alert("MESSAGE SENT!")';
+echo '</script>';
+}
+} 
+?>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="testiranje.css">
+<meta charset="utf-8"/> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="hr">
+	<title>
+	Orle Durdevic	
+	</title>
+<meta name="keywords" content=" Orle Đurđević, durdevic , orle durdevic, orle developer,web, website, web development, web developer, developer, designer, best, cool, front end, back end">
+  <meta name="description" content="The best web developer and designer in the world. Very down to earth.">
+ 
+
+<meta name="robots" content="all">
+<meta name="robots" content="index, follow">
+<META NAME="ROBOTS" CONTENT="NOYDIR">
+<META NAME="ROBOTS" CONTENT="NOODP">
+<meta name="author" content="Orle">
+
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+
+	<script src="js/tweenmax.min.js"></script>
+ <script src="js/scrollmagic.js"></script>
+ <script src="js/animation.gsap.js"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function skrolanje() {
+		if(document.body.scrollTop > 200  || document.documentElement.scrollTop > 200) {
+				var misko = document.getElementById("mis");
+				misko.setAttribute("style", "display:none; ");
+
+		}else {
+			var misko = document.getElementById("mis");
+				misko.setAttribute("style", "display:inline; ");
+		}
+	}
+</script>
+<!--  USPIO !!!!!! SKROLANJE ZA 100% VISINE KONTEJNERA SKROLANJE KOLIKO JA HOCU!!!!!  -->
+<script type="text/javascript">
+$(document).ready(function() {	
+if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+function wheel(event) {
+    var delta = 0;
+    if (event.wheelDelta) delta = event.wheelDelta / 120;
+    else if (event.detail) delta = -event.detail / 3;
+
+    handle(delta);
+    if (event.preventDefault) event.preventDefault();
+    event.returnValue = false;
+}
+
+function handle(delta) {
+var e = $(".container").height();
+    var time = 400;
+	var distance = e;
+    
+    $('html, body').stop().animate({
+        scrollTop: $(window).scrollTop() - (distance * delta)
+    }, time );
+}
+
+});
+
+</script>
+<!-- animacijaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+<script type="text/javascript">
+$(window).load(function() {
+
+var visina = $("#kont-a").height();
+var konta = $("#kont-a");
+var logo = $("#logo");
+var pozz = $("#pozz");
+/*logo.addClass("pulser");*/
+var time = 1000;	
+logo.addClass("slova_desnoo");
+konta.addClass("animacija");
+$("#bla").addClass("slova");
+/*$("#gif").css({"display":"none"});*/
+pozz.addClass("animacija1");
+konta.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',   
+    function(e) {
+    // code to execute after transition ends
+/*logo.removeClass("pulser");*/
+});
+/*$("#logo").mouseenter(function(){
+	$("#kont-a").addClass("pulser");
+});*/
+
+
+});
+
+</script>
+
+<!-- OVO JE ZA CONTAINER3 SVIJETLO I TEKST ISPOD -->
+<script type="text/javascript">
+$(document).ready(function() {
+var x,y,distanceX,distanceY,
+$element = $("#svijetlo3");
+function calculateX(elem) {
+        return (elem.width()/2);
+    }
+    function calculateY(elem) {
+        return (elem.height()/2);
+    }
+$('#container1').mousemove(function(e){
+
+  		distanceX = calculateX($element);
+		distanceY = calculateY($element);
+        x = (e.pageX - this.offsetLeft);
+        y = (e.pageY - this.offsetTop);
+        $('#svijetlo1').css({'top':  y - distanceY  ,'left':  x - distanceX  }); 
+  });
+$('#container3').mousemove(function(e){
+
+  		distanceX = calculateX($element);
+		distanceY = calculateY($element);
+        x = (e.pageX - this.offsetLeft);
+        y = (e.pageY - this.offsetTop);
+        $('#svijetlo3').css({'top':  y - distanceY  ,'left':  x - distanceX  }); 
+  });
+});
+
+	</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+$('.nav-icon').click(function() {
+
+/*$('.slider').toggle();*/
+$('#kont-b').toggle();
+/*$('.active-slide').toggle();*/
+$('#bla').toggle();
+});
+$('#mail').click(function() {
+$('#formic').toggle();
+});
+});
+</script>
+
+
+<script type="text/javascript">
+	
+$(function(){
+ var obj = document.querySelectorAll('.nav-icon');
+  for(var i = obj.length -1;i>=0;i--){
+      var toggle = obj[i];
+      toggleactive(toggle);
+  }
+  
+  function toggleactive(toggle) {
+    toggle.addEventListener("click",function() {
+      
+      if(this.classList.contains("active") === true) {
+        this.classList.remove("active");
+      }
+      else {
+        this.classList.add("active");
+      }
+    });
+  }
+});
+
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+
+$("#portfolio").hover(function(){
+
+	 $(this).addClass("aktivni_portfolio")
+$("#okvir").addClass("aktivna");
+
+});
+
+	});
+</script>
+
+
+<script type="text/javascript">
+	var main1 = function() {
+
+ /* var prelaz_u_strelicu = ['&#9662;'];*/
+  $('#portfolio').click(function() {
+  	 $(this).html('&#10687;');
+  /*	$(this).css("width", 40);*/
+  	
+
+/*$(this).html('&#10148;');//*.css("font-size", 30);*/
+ $('#tekstic').fadeOut(100);
+
+  
+    var currentSlide = $('.active-slide');
+    var nextSlide = currentSlide.next();
+
+ var currentSlide1 = $('.active-slide');
+    var nextSlide1 = currentSlide1.next();
+
+
+    if(nextSlide.length === 0) {
+      /*nextSlide = $('.slide').first();*/
+        nextSlide = $('#slide_tekst').first();
+    
+ nextSlide1 = $('.slide').first();
+
+    }
+   
+    currentSlide.fadeOut(600).removeClass('active-slide');
+    nextSlide.fadeIn(600).addClass('active-slide');
+
+    currentSlide1.fadeOut(600).removeClass('active-slide');
+    nextSlide1.fadeIn(600).addClass('active-slide');
+  });
+}
+
+$(document).ready(main1);
+
+
+</script>
+
+
+
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78438269-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+</head>
+<body onscroll="skrolanje()">
+<div id="sve">
+
+
+
+<div id="kont-b">
+
+
+<div id="okvir">
+
+<div id="slider2">
+
+<p id="tekstic">
+	<br><br><span> work</span>
+	<br><br><span> passion</span>
+<br><br><span> curiosity</span>
+<br><br><span style="color:#fff;"> creativity</span>
+<br><br><span style="color:#fff; "> innovation</span>
+<br><br> persistence
+<br><br><span style="color:#fff; text-shadow: 0px 0px 15px #000; letter-spacing: 20px;">perfection</span>
+ <!-- <br><br>hobby..<span style="color:#fff; text-shadow: 0px 0px 15px #000;">passion</span>..work<br>  -->
+ <!-- <br><br><br><span id="portfolio" style="/*background: #fff*/">portfolio</span>  -->
+	</p>
+
+
+<div id="slide_tekst">
+<br><br><span><a href="http://www.camilsoftic.com" style="color: white;"> camilsoftic.com</a></span>
+<br><br><span> Ćamil Softić</span>
+	<br><br><span>artist</span>
+ 
+</div>
+
+<div id="slide_tekst">
+<br><br><span><a href="http://www.travelin.ba" style="color: white;"> travelin.ba</a></span>
+<br><br><span> Travelin d.o.o.</span>
+	<br><br><span>traveling agency</span>
+ 
+</div>	
+
+
+<div id="slide_tekst">
+<br><br><span><a href="http://www.velvet-trade.com" style="color: white;">velvet-trade.com</a></span>
+	<br><br><span> Velvet Trade d.o.o.</span>
+<br><br><span>private firm</span>	
+</div>	
+
+</div>
+
+<p id="jap">
+<br><br><br><span id="portfolio">latest work</span>
+</p>
+
+
+</div>
+
+
+
+
+<div class="da">
+
+</div>
+
+<div class="slide">
+	<div id="slika1">
+ <img src="portfolio4.jpg"/>
+ </div>
+
+</div>
+
+<div class="slide">
+	<div id="slika1">
+ <img src="portfolio1.jpg"/>
+ </div>
+
+</div>
+
+<div class="slide">
+	<div id="slika1">
+ <img src="portfolio3.jpg"/>
+ </div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+	<div id="logo">
+		<div  id="div" class="nav-icon cross">
+  		<div class="span"></div>
+	</div>
+
+	<h1 id="bla">&Omicron; &#8479; &lfloor;</h1>  <!-- <span id="kliknuti">&Xi;</span> -->
+
+	</div>
+	
+ <div id="kont-a">
+
+	<div id="kocka_edge">
+		<!-- <div id="Stage" class="EDGE-545694750"> -->
+	</div>
+   <img id="gif" src="66.gif">  
+</div>
+
+
+<div id="container1" class="container">
+
+ <!--  <a href="http://www.bestcss.in/user/detail/ODwebsite-4742" style="width:106px;height:92px;position:fixed;top:0px;left:0px;z-index:99999;text-indent:-9999px;background: url(http://www.bestcss.in/ribbons/gray-left.png) no-repeat;" target="_blank">Best CSS Web Gallery</a>  -->
+<div>
+<div >
+  <a id="bestcss_award" href="http://www.bestcss.in/user/detail/ODwebsite-4742" style="width:106px;height:92px;position:fixed;top:0px;left:0px;z-index:99999;text-indent:-9999px;background: url(http://www.bestcss.in/ribbons/black-left.png) no-repeat;" target="_blank">BestCSS Web Gallery</a>  
+</div>
+<div >
+<a id="guru_award" href="http://webguruawards.com/user/details/Personalportfolio-1371" style="background: url(http://webguruawards.com/awards/GOTD/img_guru_of_the_day_gray.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);width:75px;height:111px;position:fixed;top:110px;left:10px;z-index:99999;" target="_blank"></a>
+
+</div>
+</div>
+
+
+
+
+<p id="luk">What are you looking for?</p>
+<div id="pravougaonik"></div>
+<div id="svijetlo1"></div>
+
+
+
+<section class="rw-wrapper">
+
+
+	<h2 class="rw-sentence"> 
+<div class="rw-words">
+			<span>Hi</span>
+			<span>How are you?</span>
+			<!--<span>LL.M.?</span>
+			<!-- <span>unseen experiences</span>
+			<span>happy feelings</span>
+			<span>beautiful butterflies</span> -->
+		</div>
+</h2>
+</section>
+
+  
+<img  id="pozz">
+
+ </div>
+
+<div id="container3">
+<p id="malitekst">Living and working in Sarajevo.</p> 
+ 
+ <img id="magla1"  src="sa1a.jpg"  alt="magla1">	
+ <div id="svijetlo3"></div>
+  <h1 id="orle">My next project <br>
+	 could be your website!</h1> 
+
+</div>
+
+<div id="footer">
+
+	<div id="mis">
+	<div class="mouse">
+  	<div class="lopta"></div>
+	</div>
+	</div>
+	 </div>
+
+
+<script>
+	// init controller
+	var controller = new ScrollMagic.Controller();
+		// build scene
+		var scene = new ScrollMagic.Scene({
+							triggerElement: "#container3"
+						})
+						.setTween("#malitekst", 1.5, {opacity:1 , y:-50, delay:1}) // trigger a TweenMax.to tween
+						/*.addIndicators({name: "1 (duration: 0)" }) // add indicators (requires plugin)*/
+						.addTo(controller);
+</script>
+
+
+
+<script type="text/javascript">
+	
+  $("#div").on("click", function() {
+  tl = TweenMax;
+  tl.to("#tekstic", 1, {
+  opacity:1,
+  y:-50,
+  delay:0.1
+
+  })
+});
+</script>
+
+<!-- Hotjar Tracking Code for http://orle.ba/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:548300,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+</body>
+</html>
